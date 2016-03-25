@@ -25,7 +25,7 @@ export default Router.extend({
 		'repos'         : 'repos',
 		'login'         : 'login',
 		'logout'        : 'logout',
-		'auth/callback' : 'authCallback'
+		'auth/callback?code=:code' : 'authCallback'
 	},
 
 	public	() {
@@ -51,8 +51,8 @@ export default Router.extend({
 
 	},
 
-	authCallback () {
-
+	authCallback (code) {
+		console.log(code);
 	}
 
 })
