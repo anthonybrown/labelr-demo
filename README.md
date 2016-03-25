@@ -1,6 +1,6 @@
 # labelr-demo
 
-** register a new app with Github **
+**register a new app with Github**
 
 Download the repo,
   1. cd into labelr-demo
