@@ -26,6 +26,7 @@
     "hjs-webpack": "^2.0.0",
     "json-loader": "^0.5.4",
     "local-links": "^1.4.0",
+    "node-uuid": "^1.4.7",
     "postcss-loader": "^0.8.2",
     "qs": "^6.1.0",
     "react": "^0.13.2",
