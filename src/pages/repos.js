@@ -6,15 +6,9 @@ export default React.createClass({
 		return (
 			<div className='container'>
 				<header role='banner'>
-					<h1>Repos</h1>
+					<h1>Repos Page</h1>
+					<small>repos are coming....</small>
 				</header>
-				<div>
-					<p>repos are coming....</p>
-					<a href='/' className='button button-large'>
-						<span className='mega-octicon octicon-mark-github'></span>
-						Go Back
-					</a>
-				</div>
 			</div>
 		)
 	}

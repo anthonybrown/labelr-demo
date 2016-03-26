@@ -53,7 +53,8 @@ export default Router.extend({
 	},
 
 	logout () {
-
+		window.localStorage.clear()
+		window.location = '/'
 	},
 
 	authCallback (query) {
@@ -64,7 +65,12 @@ export default Router.extend({
 				url: 'https://labelr-localhost-demo.herokuapp.com/authenticate/' + query.code,
 				json: true
 			}, (err, resp, body) => {
-				console.log(body.token);
+				if (err) {
+					console.error('something is wrong with something...');
+				} else {
+					app.me.token = body.token
+					this.redirectTo('/repos')
+				}
 			})
 		}
 	}
