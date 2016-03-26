@@ -3,7 +3,7 @@ import React from 'react'
 import Router from 'ampersand-router'
 import qs from 'qs'
 import uuid from 'node-uuid'
-
+import xhr from 'xhr'
 import PublicPage from './pages/public'
 import ReposPage from './pages/repos'
 import Layout from './layout'
@@ -60,12 +60,13 @@ export default Router.extend({
 		query = qs.parse(query)
 		if (query.state === window.localStorage.state) {
 			delete window.localStorage.state
-			console.log('This is our query: ' + query.code);
-			console.log('This is our state: ' + query.state);
-			console.log('They match!!');
+			xhr({
+				url: 'https://labelr-localhost-demo.herokuapp.com/authenticate/' + query.code,
+				json: true
+			}, (err, resp, body) => {
+				console.log(body.token);
+			})
 		}
-		console.log(query);
 	}
-
 })
 
