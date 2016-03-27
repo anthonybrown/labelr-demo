@@ -18,7 +18,9 @@ export default React.createClass({
 					{repos.map((repo) => {
 						return (
 							<div key={repo.id}>
-								<a href={repo.app_url}>{repo.full_name}</a>
+								<a href={repo.app_url}>
+									<span className='octicon octicon-repo'>
+									&nbsp;</span>{repo.full_name}</a>
 							</div>
 						)
 					})}
