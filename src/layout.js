@@ -2,11 +2,11 @@ import React from 'react'
 import NavHelper from './components/nav-helper'
 import ampersandMixin from 'ampersand-react-mixin'
 
-
 export	default React.createClass({
 	mixins: [ampersandMixin],
 
 	displayName: 'Layout',
+
 	render () {
 		const {me} = this.props
 
