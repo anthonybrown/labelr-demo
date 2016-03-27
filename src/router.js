@@ -6,8 +6,8 @@ import uuid from 'node-uuid'
 import xhr from 'xhr'
 import PublicPage from './pages/public'
 import ReposPage from './pages/repos'
+import RepoDetailPage from './pages/repo-detail'
 import Layout from './layout'
-
 
 export default Router.extend({
 	renderPage ( page, opts = {layout: true} ) {
@@ -23,10 +23,11 @@ export default Router.extend({
 	},
 
 	routes: {
-		''              : 'public',
-		'repos'         : 'repos',
-		'login'         : 'login',
-		'logout'        : 'logout',
+		''										 : 'public',
+		'repos'								 : 'repos',
+		'login'								 : 'login',
+		'logout'							 : 'logout',
+		'repo/:owner/:name'	   : 'repoDetail',
 		'auth/callback?:query' : 'authCallback'
 	},
 
@@ -38,6 +39,11 @@ export default Router.extend({
 
 	repos () {
 		this.renderPage(<ReposPage repos={app.me.repos} />)
+	},
+
+	repoDetail (owner, name) {
+		console.log(owner, name);
+		this.renderPage(<RepoDetailPage />)
 	},
 
 	login () {

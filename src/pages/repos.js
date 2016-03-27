@@ -1,7 +1,6 @@
 import React from 'react'
 import ampersandMixin from 'ampersand-react-mixin'
 
-
 export default React.createClass({
 	mixins: [ampersandMixin],
 
@@ -19,7 +18,7 @@ export default React.createClass({
 					{repos.map((repo) => {
 						return (
 							<div key={repo.id}>
-								<a href=''>{repo.full_name}</a>
+								<a href={repo.app_url}>{repo.full_name}</a>
 							</div>
 						)
 					})}
