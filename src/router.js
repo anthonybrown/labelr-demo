@@ -42,8 +42,9 @@ export default Router.extend({
 	},
 
 	repoDetail (owner, name) {
-		console.log(owner, name);
-		this.renderPage(<RepoDetailPage />)
+		console.log(owner, name)
+		const repo = app.me.repos.getByFullName(owner + '/' + name)
+		this.renderPage(<RepoDetailPage repo={repo} />)
 	},
 
 	login () {
@@ -66,19 +67,19 @@ export default Router.extend({
 	authCallback (query) {
 		query = qs.parse(query)
 		if (query.state === window.localStorage.state) {
-			delete window.localStorage.state;
+			delete window.localStorage.state
 			xhr({
 				url: 'https://labelr-localhost-demo.herokuapp.com/authenticate/' + query.code,
 				json: true
 			}, (err, resp, body) => {
 				if (err) {
-					console.error('something is wrong with something...');
+					console.error('something is wrong with something...')
 				} else {
-					app.me.token = body.token;
-					this.redirectTo('/repos');
+					app.me.token = body.token
+					this.redirectTo('/repos')
 				}
-			});
+			})
 		}
 	}
-});
+})
 
