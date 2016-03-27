@@ -16,7 +16,7 @@ export	default React.createClass({
 					<input id='menu-toggle' className='menu-toggle' type='checkbox' />
 					<label htmlFor='menu-toggle'>Menu</label>
 					<ul className='list-unstyled list-inline cf'>
-						<li><a href='/'>Labelr</a></li>
+						<li>Labelr</li>
 						<li><a href='/repos'>Repos</a></li>
 						<li className='pull-right'>{me.login}&nbsp;
 								<a href='/logout'>Logout</a>
