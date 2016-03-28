@@ -8,7 +8,7 @@ export default React.createClass({
 		return (
 			<NavHelper className='container'>
 				<header role='banner'>
-					<h1>Lablr</h1>
+					<h1>Lablr <span className='mega-octicon octicon-octoface'></span></h1>
 				</header>
 				<div>
 					<p>We label stuff for you, because we can&trade;</p>
