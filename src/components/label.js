@@ -42,7 +42,7 @@ export default React.createClass({
 	},
 
 	onDeleteClick (e) {
-		// delete the model
+		this.props.label.destroy()
 	},
 
 	render () {
