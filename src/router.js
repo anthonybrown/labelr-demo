@@ -8,6 +8,7 @@ import PublicPage from './pages/public'
 import ReposPage from './pages/repos'
 import RepoDetailPage from './pages/repo-detail'
 import Layout from './layout'
+import config from './config'
 
 export default Router.extend({
 	renderPage ( page, opts = {layout: true} ) {
@@ -52,7 +53,7 @@ export default Router.extend({
 		window.localStorage.state = state
 		window.location = 'https://github.com/login/oauth/authorize?' +
 			qs.stringify({
-				client_id: '8a49f43581e490e6e0a3',
+				client_id: config.clientId,
 				redirct_uri: window.location.origin + 'auth/callback',
 				scope: 'user, repo',
 				state: state
@@ -69,7 +70,7 @@ export default Router.extend({
 		if (query.state === window.localStorage.state) {
 			delete window.localStorage.state
 			xhr({
-				url: 'https://labelr-localhost-demo.herokuapp.com/authenticate/' + query.code,
+				url: config.gatekeeperUrl + '/' + query.code,
 				json: true
 			}, (err, resp, body) => {
 				if (err) {
