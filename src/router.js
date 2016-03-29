@@ -82,6 +82,8 @@ export default Router.extend({
 					this.redirectTo('/repos')
 				}
 			})
+
+		this.renderPage(<MessagePage title='Fetching data from Github...' />)
 		}
 	},
 
