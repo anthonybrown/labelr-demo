@@ -7,6 +7,7 @@ import xhr from 'xhr'
 import PublicPage from './pages/public'
 import ReposPage from './pages/repos'
 import RepoDetailPage from './pages/repo-detail'
+import MessagePage from './pages/message'
 import Layout from './layout'
 import config from './config'
 
@@ -29,7 +30,8 @@ export default Router.extend({
 		'login'								 : 'login',
 		'logout'							 : 'logout',
 		'repo/:owner/:name'	   : 'repoDetail',
-		'auth/callback?:query' : 'authCallback'
+		'auth/callback?:query' : 'authCallback',
+		'*fourOhFour'          : 'fourOhFour'
 	},
 
 	public	() {
@@ -81,6 +83,10 @@ export default Router.extend({
 				}
 			})
 		}
+	},
+
+	fourOhFour () {
+		this.renderPage(<MessagePage title='Page not found' body='please make sure you typed in your URL correctly.' />)
 	}
 })
 
