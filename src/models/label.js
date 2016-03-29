@@ -1,3 +1,4 @@
+import app from 'ampersand-app'
 import Model from 'ampersand-model'
 import xhr from 'xhr'
 import githubMixin from '../helpers/github-mixin'
@@ -13,8 +14,16 @@ export default Model.extend(githubMixin, {
 	session: {
 		editing: {
 			type: 'boolean',
-			default: false
+			default: false,
+		},
+		saved: {
+			type: 'boolean',
+			default: true
 		}
+	},
+
+	isNew () {
+		return !this.saved
 	},
 
 	update (newAttributes) {
@@ -29,7 +38,7 @@ export default Model.extend(githubMixin, {
 		}, (err, resp, body) => {
 			if (err) {
 				this.set(old)
-				console.log('check yo wifi lol..');
+				console.error('check yo wifi lol');
 			}
 		})
 		this.set(newAttributes)

@@ -7,13 +7,24 @@ export default React.createClass({
 
 	displayName: 'RepoDetailPage',
 
+	onAddClick () {
+		this.props.labels.add({
+			name: '',
+			color: '',
+			editing: true,
+			saved: false
+		}, {at: 0})
+	},
+
 	render() {
 		const {repo, labels} = this.props
 
 		return (
 			<div className='container'>
 				<h1>{repo.full_name} Labels</h1>
-				<p></p>
+				<p>
+					<button onClick={this.onAddClick} className='button'>Add a Label</button>
+				</p>
 				<ul>
 					{labels.map((label) =>
 						// this arrow function syntax works as well
